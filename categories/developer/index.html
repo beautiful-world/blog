@@ -7,18 +7,17 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>分类 - berrx</title>
+<title>分类: developer - berrx</title>
 
 
     <meta name="description" content="berrx">
 <meta property="og:type" content="website">
 <meta property="og:title" content="berrx">
-<meta property="og:url" content="http://berrx.com/categories/index.html">
+<meta property="og:url" content="http://berrx.com/categories/developer/index.html">
 <meta property="og:site_name" content="berrx">
 <meta property="og:description" content="berrx">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://berrx.com/blog/images/og_image.png">
-<meta property="article:tag" content="laravel">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://berrx.com/blog/images/og_image.png">
 
@@ -92,7 +91,7 @@
                 <a class="navbar-item"
                 href="/blog/archives">Archives</a>
                 
-                <a class="navbar-item is-active"
+                <a class="navbar-item"
                 href="/blog/categories">Categories</a>
                 
                 <a class="navbar-item"
@@ -127,27 +126,185 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-<div class="card widget">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
     <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                分类
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/blog/categories/developer/">
-            <span class="level-start">
-                <span class="level-item">developer</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">1</span>
-            </span>
-        </a></li>
-            </ul>
-        </div>
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/blog/categories">分类</a></li>
+            
+            <li class="is-active"><a href="#" aria-current="page">developer</a></li>
+        </ul>
+        </nav>
     </div>
-</div></div>
+</div>
+
+    
+<div class="card">
+    
+    <div class="card-image">
+        <a href="/blog/laravel-homestead/" class="image is-7by1">
+            <img class="thumbnail" src="https://wx1.sinaimg.cn/mw690/006msYt1ly1gctt4zvyxfj31hc0u04qu.jpg" alt="Homestead 安装与使用">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-14T14:11:01.000Z">2020-03-14</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/blog/categories/developer/">developer</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    9 分钟 读完 (大约 1393 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/blog/laravel-homestead/">Homestead 安装与使用</a>
+            
+        </h1>
+        <div class="content">
+            <blockquote>
+<p>Laravel 致力于让整个 PHP 开发体验变的更愉快，包括你的本地开发环境。Vagrant 提供了一种简单、优雅的方式来管理和配置虚拟主机。</p>
+<p>Laravel Homestead 是一个官方预封装的 Vagrant box ，它为你提供了一个完美的开发环境，你不需要在本地机器安装 PHP、web 服务器和其他的服务器软件。你再也不用担心会弄乱你的操作系统了！Vagrant boxes 是一次性的。 如果出现问题， 你可以在几分钟内销毁并重新创建 box !</p>
+<p>Homestead 可以运行在任何 Windows、Mac、或 Linux 系统， 它包括了 Nginx web 服务器，PHP 7.3、PHP 7.2、PHP 7.1、MySQL、PostgreSQL、Redis、Memcached、Node 以及你开发 Laravel 所需要的东西</p>
+</blockquote>
+<p><a href="https://learnku.com/docs/laravel/6.x/homestead/5127" target="_blank" rel="noopener">参考于laravel官方文档</a></p>
+<h3 id="使用Homestead开发区别"><a href="#使用Homestead开发区别" class="headerlink" title="使用Homestead开发区别"></a>使用Homestead开发区别</h3><p>相比在windows开发, 在linux虚拟机开发更接近生产环境, 且不会污染本地的(win/mac)环境, 还可以自由的配置php版本. 在这里由于一些网络环境的原因, homestead的下载与使用并不能像官方手册中那么方便, 需要自己进行一些安装操作, 在本文中会介绍在windows 环境下使用Homestead 的注意事项</p>
+<h3 id="先期准备"><a href="#先期准备" class="headerlink" title="先期准备"></a>先期准备</h3><ol>
+<li><p>首先要确保你的电脑主板支持 (VT-x) 功能, 并且需要开启这个功能 (进入BIOS界面开启, 没有开启的可以根据自己的主板型号百度下开启的方法自行开启)</p>
+</li>
+<li><p>需要禁用 Windows自带的虚拟机, 禁用Hyper-V的命令. </p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bcdedit &#x2F;set hypervisorlaunchtype off</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>需要预先下载的三个软件</li>
+</ol>
+<p><a href="https://git-scm.com/" target="_blank" rel="noopener">Git Bash</a> , <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener">Virtualbox</a>, <a href="https://www.vagrantup.com/downloads.html" target="_blank" rel="noopener">Vagrant</a></p>
+<ol start="4">
+<li>全部安装完成后打开git bash 运行下面的命令. </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant box add laravel&#x2F;homestead</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>运行上面的命令后出现下面的解释, 会让你选择使用哪种虚拟机, 这里我们使用的是virtualbox. </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">This box can work with multiple providers! The providers that it</span><br><span class="line">can work with are listed below. Please review the list and choose</span><br><span class="line">the provider you will be working with.</span><br><span class="line"></span><br><span class="line">1) hyperv</span><br><span class="line">2) parallels</span><br><span class="line">3) virtualbox</span><br><span class="line">4) vmware_desktop</span><br><span class="line"></span><br><span class="line">Enter your choice: 3</span><br></pre></td></tr></table></figure>
+
+<ol start="6">
+<li>选完后会自动进行下载, 但是由于网络问题, 下载速度实在是令人堪忧, 可以直接复制下面的链接进行下载, 下载完成后进行本地安装. </li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Enter your choice: 3</span><br><span class="line">&#x3D;&#x3D;&gt; box: Adding box &#39;laravel&#x2F;homestead&#39; (v9.2.0) for provider: virtualbox</span><br><span class="line">    box: Downloading: https:&#x2F;&#x2F;vagrantcloud.com&#x2F;laravel&#x2F;boxes&#x2F;homestead&#x2F;versions&#x2F;9.2.0&#x2F;providers&#x2F;virtualbox.box</span><br><span class="line">    box: Download redirected to host: vagrantcloud-files-production.s3.amazonaws.com</span><br><span class="line">    box: Progress: 3% (Rate: 0&#x2F;s, Estimated time remaining: 9:13:05)</span><br></pre></td></tr></table></figure>
+
+<p>在这里我的链接是 : </p>
+<p><a href="https://vagrantcloud.com/laravel/boxes/homestead/versions/9.2.0/providers/virtualbox.box" target="_blank" rel="noopener">https://vagrantcloud.com/laravel/boxes/homestead/versions/9.2.0/providers/virtualbox.box</a></p>
+<h3 id="本地安装"><a href="#本地安装" class="headerlink" title="本地安装"></a>本地安装</h3><ol>
+<li>下载完成大概是这样的一个文件 <code>4c526667-0956-45df-92ff-78ba76cb1148</code> 将其重命名为 <code>virtualbox.box</code> , 然后运行下面的命令 (将我的目录改为自己的目录) , 安装完成后可以运行 <code>vagrant box list</code> 检查是否安装成功.</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant box add laravel&#x2F;homestead C:&#x2F;Users&#x2F;berrx&#x2F;Downloads&#x2F;virtualbox.box</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>找到安装的目录: <code>c:/users/berrx/.vagrant.d/boxes/laravel-VAGRANTSLASH-homestead</code></p>
+</li>
+<li><p>添加一个名为 <code>metadata_url</code> 的文件, 用记事本代开文件, 将这个链接复制到文件里:</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:&#x2F;&#x2F;atlas.hashicorp.com&#x2F;laravel&#x2F;homestead</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>将0这个目录改为自己的版本号 9.2.0.</li>
+</ol>
+<h3 id="创建虚拟机"><a href="#创建虚拟机" class="headerlink" title="创建虚拟机"></a>创建虚拟机</h3><p>首先需要生成 SSH Key 生成过的可以忽略.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;your_email@example.com&quot;</span><br></pre></td></tr></table></figure>
+
+<p>然后<code>git clone</code>一份homestead文件.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;laravel&#x2F;homestead.git D:&#x2F;Homestead</span><br></pre></td></tr></table></figure>
+
+<p>进入到目录里双击 <code>init.sh</code> 这个文件, 使其初始化homestead.</p>
+<p>记事本打开目录下 <code>Homestead.yaml</code>, 并修改这几处:</p>
+<p>添加自己的密钥</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">keys:</span><br><span class="line">    - ~&#x2F;.ssh&#x2F;id_rsa</span><br><span class="line">    - ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br></pre></td></tr></table></figure>
+
+<p>修改映射目录 (虚拟机里的目录会同步到你本地) map 为本地 , to 为虚拟机目录, 需要确保你本地目录下存在这个文件夹, 没有可以创建一个专门用于项目的保存</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">folders:</span><br><span class="line">    - map: D:&#x2F;code</span><br><span class="line">      to: &#x2F;home&#x2F;vagrant&#x2F;code</span><br></pre></td></tr></table></figure>
+
+<p>站点配置 map 为站点地址, to 为虚拟机站点目录, type为站点类型, 支持的类型可以到homestead文件夹里的<code>\scripts\site-types</code>目录去看一下,也可以自己扩展</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sites:</span><br><span class="line">    - map: laravel.test</span><br><span class="line">      to: &#x2F;home&#x2F;vagrant&#x2F;code&#x2F;Laravel&#x2F;public</span><br><span class="line">      type: laravel</span><br></pre></td></tr></table></figure>
+
+<p>除了这几处文件中还有几行配置, 为虚拟机可以扩展的应用, 如果需要的话可以改为true, 应用有很多比如 <code>mysql8</code>,  <code>docker</code>,  <code>mongodb</code>, 具体可以根据手册自己自定义一下(需要注意, 因为网络原因, 应用有一定几率会创建虚拟机时下载失败)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">features:</span><br><span class="line">    - mariadb: false</span><br><span class="line">    - ohmyzsh: false</span><br><span class="line">    - webdriver: false</span><br></pre></td></tr></table></figure>
+
+<p>修改完配置后, 运行命令创建</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant up</span><br></pre></td></tr></table></figure>
+
+<p>耐心等待一段事件之后就可以看到虚拟机创建完成 , 完成后运行命令进入虚拟机命令行操作界面</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant ssh</span><br></pre></td></tr></table></figure>
+
+<p>ssh连接成功后, 就可以使用这个linux虚拟机进行自己的开发了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Welcome to Ubuntu 18.04.3 LTS (GNU&#x2F;Linux 4.15.0-74-generic x86_64)</span><br><span class="line"></span><br><span class="line">Thanks for using</span><br><span class="line"> _                               _                 _</span><br><span class="line">| |                             | |               | |</span><br><span class="line">| |__   ___  _ __ ___   ___  ___| |_ ___  __ _  __| |</span><br><span class="line">| &#39;_ \ &#x2F; _ \| &#39;_ &#96; _ \ &#x2F; _ \&#x2F; __| __&#x2F; _ \&#x2F; _&#96; |&#x2F; _&#96; |</span><br><span class="line">| | | | (_) | | | | | |  __&#x2F;\__ \ ||  __&#x2F; (_| | (_| |</span><br><span class="line">|_| |_|\___&#x2F;|_| |_| |_|\___||___&#x2F;\__\___|\__,_|\__,_|</span><br><span class="line"></span><br><span class="line">* Homestead v10.3.0 released</span><br><span class="line">* Settler v9.2.0 released</span><br><span class="line"></span><br><span class="line">0 packages can be updated.</span><br><span class="line">0 updates are security updates.</span><br></pre></td></tr></table></figure>
+
+<p>进入映射目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;code</span><br></pre></td></tr></table></figure>
+
+<p>安装Laravel</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer create-project --prefer-dist laravel&#x2F;laravel Laravel</span><br></pre></td></tr></table></figure>
+
+<p>在本地访问网站<br><a href="http:\\192.168.10.10" target="_blank" rel="noopener">http:\\192.168.10.10</a></p>
+<h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h5 id="关机命令"><a href="#关机命令" class="headerlink" title="关机命令"></a>关机命令</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant halt</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="重启虚拟机"><a href="#重启虚拟机" class="headerlink" title="重启虚拟机"></a>重启虚拟机</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant reload</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="重新加载配置"><a href="#重新加载配置" class="headerlink" title="重新加载配置"></a>重新加载配置</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant provision</span><br></pre></td></tr></table></figure>
+
+
+
+<h5 id="使用代理"><a href="#使用代理" class="headerlink" title="使用代理"></a>使用代理</h5><ol>
+<li>安装插件</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant plugin install vagrant-proxyconf</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>修改homestead目录下的 <code>Vagrantfile</code> 文件, 将端口修改为自己需要的端口</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if Vagrant.has_plugin?(&quot;vagrant-proxyconf&quot;)</span><br><span class="line">  config.proxy.http     &#x3D; &quot;http:&#x2F;&#x2F;10.0.2.2:1080&#x2F;&quot;</span><br><span class="line">  config.proxy.https    &#x3D; &quot;http:&#x2F;&#x2F;10.0.2.2:1080&#x2F;&quot;</span><br><span class="line">  config.proxy.no_proxy &#x3D; &quot;localhost,127.0.0.1,.example.com&quot;</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>运行命令后</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vagrant provision #应用配置</span><br><span class="line">vagrant reload # 重启</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+</div>
                 
 
 
