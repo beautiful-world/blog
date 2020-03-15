@@ -142,6 +142,88 @@
 <div class="card">
     
     <div class="card-image">
+        <a href="/laravel-social-1/" class="image is-7by1">
+            <img class="thumbnail" src="https://wx1.sinaimg.cn/mw690/006msYt1ly1gctt4zvyxfj31hc0u04qu.jpg" alt="使用 Laravel 从零做一个社交网站 (一)">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-15T11:58:00.000Z">2020-03-15</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/developer/">developer</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 517 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                <a class="has-link-black-ter" href="/laravel-social-1/">使用 Laravel 从零做一个社交网站 (一)</a>
+            
+        </h1>
+        <div class="content">
+            <blockquote>
+<p>本文需要用到homestead环境, 上一篇文章已经写过如何使用homestead了</p>
+</blockquote>
+<h3 id="创建一个应用"><a href="#创建一个应用" class="headerlink" title="创建一个应用"></a>创建一个应用</h3><p>使用 Composer 在code文件夹下创建一个名为 <code>social</code> 的应用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer create-project laravel&#x2F;laravel social</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="修改hosts文件"><a href="#修改hosts文件" class="headerlink" title="修改hosts文件"></a>修改hosts文件</h3><p>使用笔记本打开hosts文件 在最后另起一行添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.10.10   social.com</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>windows的hosts文件路径是 <code>C:\Windows\System32\Drivers\etc\hosts</code> , 可能hosts文件在这个文件夹里无法修改, 我一般是将hosts文件移动到另一个文件夹, 修改后在放回原文件夹</p>
+</blockquote>
+<h3 id="在Homestead-新增站点"><a href="#在Homestead-新增站点" class="headerlink" title="在Homestead 新增站点"></a>在Homestead 新增站点</h3><p>打开homestead, 修改以下几处, (注意路径是否正确)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">ip: &quot;192.168.10.10&quot;</span><br><span class="line">memory: 2048</span><br><span class="line">cpus: 1</span><br><span class="line">provider: virtualbox</span><br><span class="line"></span><br><span class="line">authorize: ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br><span class="line"></span><br><span class="line">keys:</span><br><span class="line">    - ~&#x2F;.ssh&#x2F;id_rsa</span><br><span class="line"></span><br><span class="line">folders:</span><br><span class="line">    - map: D:&#x2F;code</span><br><span class="line">      to: &#x2F;home&#x2F;vagrant&#x2F;code</span><br><span class="line"></span><br><span class="line">sites:</span><br><span class="line">    - map: homestead.test</span><br><span class="line">      to: &#x2F;home&#x2F;vagrant&#x2F;code&#x2F;Laravel&#x2F;public</span><br><span class="line">    - map: social.com # &lt;--- 这里</span><br><span class="line">      to: &#x2F;home&#x2F;vagrant&#x2F;code&#x2F;weibo&#x2F;public # &lt;--- 这里</span><br><span class="line"></span><br><span class="line">databases:</span><br><span class="line">    - homestead</span><br><span class="line">    - social # &lt;--- 这里</span><br><span class="line"></span><br><span class="line">variables:</span><br><span class="line">    - key: APP_ENV</span><br><span class="line">      value: local</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="更新虚拟机配置"><a href="#更新虚拟机配置" class="headerlink" title="更新虚拟机配置"></a>更新虚拟机配置</h3><p>修改 homestead.yaml 文件之后, 需要重新配置虚拟机使其生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd D:&#x2F;homestead &amp;&amp; vagrant provision &amp;&amp; vagrant reload</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="配置应用"><a href="#配置应用" class="headerlink" title="配置应用"></a>配置应用</h3><p>打开应用下的 <code>.env</code> 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">APP_NAME&#x3D;social # &lt;-----修改这里 &quot;应用名称&quot;</span><br><span class="line">APP_ENV&#x3D;local</span><br><span class="line">APP_KEY&#x3D;base64:Oy2LI7&#x2F;j1q0E1h+gymed4czZQQHsNP2UO7jVWneJ7rI&#x3D;</span><br><span class="line">APP_DEBUG&#x3D;true</span><br><span class="line">APP_URL&#x3D;http:&#x2F;&#x2F;social.com # &lt;-----修改这里 &quot;网站地址&quot;</span><br><span class="line"></span><br><span class="line">LOG_CHANNEL&#x3D;stack</span><br><span class="line"></span><br><span class="line">DB_CONNECTION&#x3D;mysql</span><br><span class="line">DB_HOST&#x3D;127.0.0.1</span><br><span class="line">DB_PORT&#x3D;3306</span><br><span class="line">DB_DATABASE&#x3D;social # &lt;-----修改这里 &quot;数据库名称&quot;</span><br><span class="line">DB_USERNAME&#x3D;homestead # &lt;-----修改这里 &quot;数据库用户名称&quot; &quot;secret&quot;是默认的用户名</span><br><span class="line">DB_PASSWORD&#x3D;secret # &lt;-----修改这里 数据库用户密码 &quot;secret&quot;是默认的密码</span><br><span class="line"></span><br><span class="line">BROADCAST_DRIVER&#x3D;log</span><br><span class="line">CACHE_DRIVER&#x3D;file</span><br><span class="line">QUEUE_CONNECTION&#x3D;sync</span><br><span class="line">SESSION_DRIVER&#x3D;file</span><br><span class="line">SESSION_LIFETIME&#x3D;120</span><br><span class="line"></span><br><span class="line">REDIS_HOST&#x3D;127.0.0.1 # Redis配置</span><br><span class="line">REDIS_PASSWORD&#x3D;null</span><br><span class="line">REDIS_PORT&#x3D;6379</span><br><span class="line"></span><br><span class="line">MAIL_MAILER&#x3D;smtp # 邮箱配置 以后会用到</span><br><span class="line">MAIL_HOST&#x3D;smtp.mailtrap.io</span><br><span class="line">MAIL_PORT&#x3D;2525</span><br><span class="line">MAIL_USERNAME&#x3D;null</span><br><span class="line">MAIL_PASSWORD&#x3D;null</span><br><span class="line">MAIL_ENCRYPTION&#x3D;null</span><br><span class="line">MAIL_FROM_ADDRESS&#x3D;null</span><br><span class="line">MAIL_FROM_NAME&#x3D;&quot;$&#123;APP_NAME&#125;&quot;</span><br><span class="line"></span><br><span class="line">AWS_ACCESS_KEY_ID&#x3D;</span><br><span class="line">AWS_SECRET_ACCESS_KEY&#x3D;</span><br><span class="line">AWS_DEFAULT_REGION&#x3D;us-east-1</span><br><span class="line">AWS_BUCKET&#x3D;</span><br><span class="line"></span><br><span class="line">PUSHER_APP_ID&#x3D;</span><br><span class="line">PUSHER_APP_KEY&#x3D;</span><br><span class="line">PUSHER_APP_SECRET&#x3D;</span><br><span class="line">PUSHER_APP_CLUSTER&#x3D;mt1</span><br><span class="line"></span><br><span class="line">MIX_PUSHER_APP_KEY&#x3D;&quot;$&#123;PUSHER_APP_KEY&#125;&quot;</span><br><span class="line">MIX_PUSHER_APP_CLUSTER&#x3D;&quot;$&#123;PUSHER_APP_CLUSTER&#125;&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="打开网站"><a href="#打开网站" class="headerlink" title="打开网站"></a>打开网站</h3><p><a href="social.com">social.com</a></p>
+<p>如果可以正常打开说明网站应用已经创建好了, 下一章会讲如何创建 Laravel页面</p>
+
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+
+
+
+
+
+    
+<div class="card">
+    
+    <div class="card-image">
         <a href="/laravel-homestead/" class="image is-7by1">
             <img class="thumbnail" src="https://wx1.sinaimg.cn/mw690/006msYt1ly1gctt4zvyxfj31hc0u04qu.jpg" alt="Homestead 安装与使用">
         </a>
@@ -179,7 +261,7 @@
 <p>Laravel Homestead 是一个官方预封装的 Vagrant box ，它为你提供了一个完美的开发环境，你不需要在本地机器安装 PHP、web 服务器和其他的服务器软件。你再也不用担心会弄乱你的操作系统了！Vagrant boxes 是一次性的。 如果出现问题， 你可以在几分钟内销毁并重新创建 box !</p>
 <p>Homestead 可以运行在任何 Windows、Mac、或 Linux 系统， 它包括了 Nginx web 服务器，PHP 7.3、PHP 7.2、PHP 7.1、MySQL、PostgreSQL、Redis、Memcached、Node 以及你开发 Laravel 所需要的东西</p>
 </blockquote>
-<p><a href="https://learnku.com/docs/laravel/6.x/homestead/5127" target="_blank" rel="noopener">参考于laravel官方文档</a></p>
+<p><a href="https://learnku.com/docs/laravel/6.x/homestead/5127">参考于laravel官方文档</a></p>
 <h3 id="使用Homestead开发区别"><a href="#使用Homestead开发区别" class="headerlink" title="使用Homestead开发区别"></a>使用Homestead开发区别</h3><p>相比在windows开发, 在linux虚拟机开发更接近生产环境, 且不会污染本地的(win/mac)环境, 还可以自由的配置php版本. 在这里由于一些网络环境的原因, homestead的下载与使用并不能像官方手册中那么方便, 需要自己进行一些安装操作, 在本文中会介绍在windows 环境下使用Homestead 的注意事项</p>
 <h3 id="先期准备"><a href="#先期准备" class="headerlink" title="先期准备"></a>先期准备</h3><ol>
 <li><p>首先要确保你的电脑主板支持 (VT-x) 功能, 并且需要开启这个功能 (进入BIOS界面开启, 没有开启的可以根据自己的主板型号百度下开启的方法自行开启)</p>
@@ -192,7 +274,7 @@
 <ol start="3">
 <li>需要预先下载的三个软件</li>
 </ol>
-<p><a href="https://git-scm.com/" target="_blank" rel="noopener">Git Bash</a> , <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank" rel="noopener">Virtualbox</a>, <a href="https://www.vagrantup.com/downloads.html" target="_blank" rel="noopener">Vagrant</a></p>
+<p><a href="https://git-scm.com/">Git Bash</a> , <a href="https://www.virtualbox.org/wiki/Downloads">Virtualbox</a>, <a href="https://www.vagrantup.com/downloads.html">Vagrant</a></p>
 <ol start="4">
 <li>全部安装完成后打开git bash 运行下面的命令. </li>
 </ol>
@@ -209,7 +291,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Enter your choice: 3</span><br><span class="line">&#x3D;&#x3D;&gt; box: Adding box &#39;laravel&#x2F;homestead&#39; (v9.2.0) for provider: virtualbox</span><br><span class="line">    box: Downloading: https:&#x2F;&#x2F;vagrantcloud.com&#x2F;laravel&#x2F;boxes&#x2F;homestead&#x2F;versions&#x2F;9.2.0&#x2F;providers&#x2F;virtualbox.box</span><br><span class="line">    box: Download redirected to host: vagrantcloud-files-production.s3.amazonaws.com</span><br><span class="line">    box: Progress: 3% (Rate: 0&#x2F;s, Estimated time remaining: 9:13:05)</span><br></pre></td></tr></table></figure>
 
 <p>在这里我的链接是 : </p>
-<p><a href="https://vagrantcloud.com/laravel/boxes/homestead/versions/9.2.0/providers/virtualbox.box" target="_blank" rel="noopener">https://vagrantcloud.com/laravel/boxes/homestead/versions/9.2.0/providers/virtualbox.box</a></p>
+<p><a href="https://vagrantcloud.com/laravel/boxes/homestead/versions/9.2.0/providers/virtualbox.box">https://vagrantcloud.com/laravel/boxes/homestead/versions/9.2.0/providers/virtualbox.box</a></p>
 <h3 id="本地安装"><a href="#本地安装" class="headerlink" title="本地安装"></a>本地安装</h3><ol>
 <li>下载完成大概是这样的一个文件 <code>4c526667-0956-45df-92ff-78ba76cb1148</code> 将其重命名为 <code>virtualbox.box</code> , 然后运行下面的命令 (将我的目录改为自己的目录) , 安装完成后可以运行 <code>vagrant box list</code> 检查是否安装成功.</li>
 </ol>
@@ -261,7 +343,7 @@
 <p>安装Laravel</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer create-project --prefer-dist laravel&#x2F;laravel Laravel</span><br></pre></td></tr></table></figure>
 
-<p>在本地访问网站<br><a href="http:\\192.168.10.10" target="_blank" rel="noopener">http:\\192.168.10.10</a></p>
+<p>在本地访问网站<br><a href="http:\\192.168.10.10">http:\\192.168.10.10</a></p>
 <h3 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h3><h5 id="关机命令"><a href="#关机命令" class="headerlink" title="关机命令"></a>关机命令</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant halt</span><br></pre></td></tr></table></figure>
 
 
@@ -349,7 +431,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            1
+                            2
                         </p>
                     </a>
                 </div>
@@ -373,7 +455,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            1
+                            4
                         </p>
                     </a>
                 </div>
@@ -470,7 +552,7 @@
                 <span class="level-item">developer</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">1</span>
+                <span class="level-item tag">2</span>
             </span>
         </a></li>
             </ul>
@@ -483,7 +565,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/laravel/" style="font-size: 10px;">laravel</a>
+        <a href="/tags/Composer/" style="font-size: 10px;">Composer</a> <a href="/tags/Laravel/" style="font-size: 20px;">Laravel</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a>
     </div>
 </div>
     
@@ -495,6 +577,25 @@
         <h3 class="menu-label">
             最新文章
         </h3>
+        
+        <article class="media">
+            
+            <a href="/laravel-social-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://wx1.sinaimg.cn/mw690/006msYt1ly1gctt4zvyxfj31hc0u04qu.jpg" alt="使用 Laravel 从零做一个社交网站 (一)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-15T11:58:00.000Z">2020-03-15</time></div>
+                    <a href="/laravel-social-1/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用 Laravel 从零做一个社交网站 (一)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/developer/">developer</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -532,7 +633,7 @@
                     <span class="level-item">三月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -551,9 +652,30 @@
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/laravel/">
-                        <span class="tag">laravel</span>
+                    <a class="tags has-addons" href="/tags/Composer/">
+                        <span class="tag">Composer</span>
                         <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Laravel/">
+                        <span class="tag">Laravel</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Linux/">
+                        <span class="tag">Linux</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/PHP/">
+                        <span class="tag">PHP</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -581,6 +703,25 @@
         
         <article class="media">
             
+            <a href="/laravel-social-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="https://wx1.sinaimg.cn/mw690/006msYt1ly1gctt4zvyxfj31hc0u04qu.jpg" alt="使用 Laravel 从零做一个社交网站 (一)">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2020-03-15T11:58:00.000Z">2020-03-15</time></div>
+                    <a href="/laravel-social-1/" class="title has-link-black-ter is-size-6 has-text-weight-normal">使用 Laravel 从零做一个社交网站 (一)</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/developer/">developer</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/laravel-homestead/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="https://wx1.sinaimg.cn/mw690/006msYt1ly1gctt4zvyxfj31hc0u04qu.jpg" alt="Homestead 安装与使用">
@@ -615,7 +756,7 @@
                     <span class="level-item">三月 2020</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">1</span>
+                    <span class="level-item tag">2</span>
                 </span>
             </a>
         </li>
@@ -634,9 +775,30 @@
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
-                    <a class="tags has-addons" href="/tags/laravel/">
-                        <span class="tag">laravel</span>
+                    <a class="tags has-addons" href="/tags/Composer/">
+                        <span class="tag">Composer</span>
                         <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Laravel/">
+                        <span class="tag">Laravel</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/Linux/">
+                        <span class="tag">Linux</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/PHP/">
+                        <span class="tag">PHP</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 

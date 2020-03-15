@@ -7,23 +7,24 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>分类 - berrx</title>
+<title>使用 Laravel 从零做一个社交网站 (一) - berrx</title>
 
 
-    <meta name="description" content="berrx">
-<meta property="og:type" content="website">
-<meta property="og:title" content="berrx">
-<meta property="og:url" content="http://berrx.com/categories/index.html">
+    <meta name="description" content="本文需要用到homestead环境, 上一篇文章已经写过如何使用homestead了  创建一个应用使用 Composer 在code文件夹下创建一个名为 social 的应用 1composer create-project laravel&#x2F;laravel social    修改hosts文件使用笔记本打开hosts文件 在最后另起一行添加 1192.168.10.10   soc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用 Laravel 从零做一个社交网站 (一)">
+<meta property="og:url" content="http://berrx.com/laravel-social-1/index.html">
 <meta property="og:site_name" content="berrx">
-<meta property="og:description" content="berrx">
+<meta property="og:description" content="本文需要用到homestead环境, 上一篇文章已经写过如何使用homestead了  创建一个应用使用 Composer 在code文件夹下创建一个名为 social 的应用 1composer create-project laravel&#x2F;laravel social    修改hosts文件使用笔记本打开hosts文件 在最后另起一行添加 1192.168.10.10   soc">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://berrx.com/images/og_image.png">
+<meta property="og:image" content="https://wx1.sinaimg.cn/mw690/006msYt1ly1gctt4zvyxfj31hc0u04qu.jpg">
+<meta property="article:published_time" content="2020-03-15T11:58:00.000Z">
+<meta property="article:modified_time" content="2020-03-15T04:58:13.724Z">
 <meta property="article:tag" content="Laravel">
 <meta property="article:tag" content="PHP">
 <meta property="article:tag" content="Composer">
-<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://berrx.com/images/og_image.png">
+<meta name="twitter:image" content="https://wx1.sinaimg.cn/mw690/006msYt1ly1gctt4zvyxfj31hc0u04qu.jpg">
 
 
 
@@ -81,7 +82,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="berrx" height="28">
+                <img src="/images/logo.svg" alt="使用 Laravel 从零做一个社交网站 (一)" height="28">
             
             </a>
         </div>
@@ -95,7 +96,7 @@
                 <a class="navbar-item"
                 href="/archives">Archives</a>
                 
-                <a class="navbar-item is-active"
+                <a class="navbar-item"
                 href="/categories">Categories</a>
                 
                 <a class="navbar-item"
@@ -131,26 +132,143 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-<div class="card widget">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="https://wx1.sinaimg.cn/mw690/006msYt1ly1gctt4zvyxfj31hc0u04qu.jpg" alt="使用 Laravel 从零做一个社交网站 (一)">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2020-03-15T11:58:00.000Z">2020-03-15</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/developer/">developer</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 517 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                使用 Laravel 从零做一个社交网站 (一)
+            
+        </h1>
+        <div class="content">
+            <blockquote>
+<p>本文需要用到homestead环境, 上一篇文章已经写过如何使用homestead了</p>
+</blockquote>
+<h3 id="创建一个应用"><a href="#创建一个应用" class="headerlink" title="创建一个应用"></a>创建一个应用</h3><p>使用 Composer 在code文件夹下创建一个名为 <code>social</code> 的应用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">composer create-project laravel&#x2F;laravel social</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="修改hosts文件"><a href="#修改hosts文件" class="headerlink" title="修改hosts文件"></a>修改hosts文件</h3><p>使用笔记本打开hosts文件 在最后另起一行添加</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.10.10   social.com</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>windows的hosts文件路径是 <code>C:\Windows\System32\Drivers\etc\hosts</code> , 可能hosts文件在这个文件夹里无法修改, 我一般是将hosts文件移动到另一个文件夹, 修改后在放回原文件夹</p>
+</blockquote>
+<h3 id="在Homestead-新增站点"><a href="#在Homestead-新增站点" class="headerlink" title="在Homestead 新增站点"></a>在Homestead 新增站点</h3><p>打开homestead, 修改以下几处, (注意路径是否正确)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">ip: &quot;192.168.10.10&quot;</span><br><span class="line">memory: 2048</span><br><span class="line">cpus: 1</span><br><span class="line">provider: virtualbox</span><br><span class="line"></span><br><span class="line">authorize: ~&#x2F;.ssh&#x2F;id_rsa.pub</span><br><span class="line"></span><br><span class="line">keys:</span><br><span class="line">    - ~&#x2F;.ssh&#x2F;id_rsa</span><br><span class="line"></span><br><span class="line">folders:</span><br><span class="line">    - map: D:&#x2F;code</span><br><span class="line">      to: &#x2F;home&#x2F;vagrant&#x2F;code</span><br><span class="line"></span><br><span class="line">sites:</span><br><span class="line">    - map: homestead.test</span><br><span class="line">      to: &#x2F;home&#x2F;vagrant&#x2F;code&#x2F;Laravel&#x2F;public</span><br><span class="line">    - map: social.com # &lt;--- 这里</span><br><span class="line">      to: &#x2F;home&#x2F;vagrant&#x2F;code&#x2F;weibo&#x2F;public # &lt;--- 这里</span><br><span class="line"></span><br><span class="line">databases:</span><br><span class="line">    - homestead</span><br><span class="line">    - social # &lt;--- 这里</span><br><span class="line"></span><br><span class="line">variables:</span><br><span class="line">    - key: APP_ENV</span><br><span class="line">      value: local</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="更新虚拟机配置"><a href="#更新虚拟机配置" class="headerlink" title="更新虚拟机配置"></a>更新虚拟机配置</h3><p>修改 homestead.yaml 文件之后, 需要重新配置虚拟机使其生效</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd D:&#x2F;homestead &amp;&amp; vagrant provision &amp;&amp; vagrant reload</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="配置应用"><a href="#配置应用" class="headerlink" title="配置应用"></a>配置应用</h3><p>打开应用下的 <code>.env</code> 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">APP_NAME&#x3D;social # &lt;-----修改这里 &quot;应用名称&quot;</span><br><span class="line">APP_ENV&#x3D;local</span><br><span class="line">APP_KEY&#x3D;base64:Oy2LI7&#x2F;j1q0E1h+gymed4czZQQHsNP2UO7jVWneJ7rI&#x3D;</span><br><span class="line">APP_DEBUG&#x3D;true</span><br><span class="line">APP_URL&#x3D;http:&#x2F;&#x2F;social.com # &lt;-----修改这里 &quot;网站地址&quot;</span><br><span class="line"></span><br><span class="line">LOG_CHANNEL&#x3D;stack</span><br><span class="line"></span><br><span class="line">DB_CONNECTION&#x3D;mysql</span><br><span class="line">DB_HOST&#x3D;127.0.0.1</span><br><span class="line">DB_PORT&#x3D;3306</span><br><span class="line">DB_DATABASE&#x3D;social # &lt;-----修改这里 &quot;数据库名称&quot;</span><br><span class="line">DB_USERNAME&#x3D;homestead # &lt;-----修改这里 &quot;数据库用户名称&quot; &quot;secret&quot;是默认的用户名</span><br><span class="line">DB_PASSWORD&#x3D;secret # &lt;-----修改这里 数据库用户密码 &quot;secret&quot;是默认的密码</span><br><span class="line"></span><br><span class="line">BROADCAST_DRIVER&#x3D;log</span><br><span class="line">CACHE_DRIVER&#x3D;file</span><br><span class="line">QUEUE_CONNECTION&#x3D;sync</span><br><span class="line">SESSION_DRIVER&#x3D;file</span><br><span class="line">SESSION_LIFETIME&#x3D;120</span><br><span class="line"></span><br><span class="line">REDIS_HOST&#x3D;127.0.0.1 # Redis配置</span><br><span class="line">REDIS_PASSWORD&#x3D;null</span><br><span class="line">REDIS_PORT&#x3D;6379</span><br><span class="line"></span><br><span class="line">MAIL_MAILER&#x3D;smtp # 邮箱配置 以后会用到</span><br><span class="line">MAIL_HOST&#x3D;smtp.mailtrap.io</span><br><span class="line">MAIL_PORT&#x3D;2525</span><br><span class="line">MAIL_USERNAME&#x3D;null</span><br><span class="line">MAIL_PASSWORD&#x3D;null</span><br><span class="line">MAIL_ENCRYPTION&#x3D;null</span><br><span class="line">MAIL_FROM_ADDRESS&#x3D;null</span><br><span class="line">MAIL_FROM_NAME&#x3D;&quot;$&#123;APP_NAME&#125;&quot;</span><br><span class="line"></span><br><span class="line">AWS_ACCESS_KEY_ID&#x3D;</span><br><span class="line">AWS_SECRET_ACCESS_KEY&#x3D;</span><br><span class="line">AWS_DEFAULT_REGION&#x3D;us-east-1</span><br><span class="line">AWS_BUCKET&#x3D;</span><br><span class="line"></span><br><span class="line">PUSHER_APP_ID&#x3D;</span><br><span class="line">PUSHER_APP_KEY&#x3D;</span><br><span class="line">PUSHER_APP_SECRET&#x3D;</span><br><span class="line">PUSHER_APP_CLUSTER&#x3D;mt1</span><br><span class="line"></span><br><span class="line">MIX_PUSHER_APP_KEY&#x3D;&quot;$&#123;PUSHER_APP_KEY&#125;&quot;</span><br><span class="line">MIX_PUSHER_APP_CLUSTER&#x3D;&quot;$&#123;PUSHER_APP_CLUSTER&#125;&quot;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="打开网站"><a href="#打开网站" class="headerlink" title="打开网站"></a>打开网站</h3><p><a href="social.com">social.com</a></p>
+<p>如果可以正常打开说明网站应用已经创建好了, 下一章会讲如何创建 Laravel页面</p>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Composer/" rel="tag">Composer</a>, <a class="has-link-grey -link" href="/tags/Laravel/" rel="tag">Laravel</a>, <a class="has-link-grey -link" href="/tags/PHP/" rel="tag">PHP</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
     <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                分类
-            </h3>
-            <ul class="menu-list">
-            <li>
-        <a class="level is-marginless" href="/categories/developer/">
-            <span class="level-start">
-                <span class="level-item">developer</span>
-            </span>
-            <span class="level-end">
-                <span class="level-item tag">2</span>
-            </span>
-        </a></li>
-            </ul>
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Alipay. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>qrcode</code> for Wechat. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                <!-- Visit https://www.paypal.com/donate/buttons/ to get your donate button -->
+
+<div class="notification is-danger">
+    You forgot to set the <code>business</code> and <code>currency_code</code> for Paypal. Please set it in <code>_config.yml</code>.
+</div>
+
+                
+                
+<div class="notification is-danger">
+    You forgot to set the <code>url</code> Patreon. Please set it in <code>_config.yml</code>.
+</div>
+
+                
         </div>
     </div>
-</div></div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/laravel-homestead/">
+                <span class="level-item">Homestead 安装与使用</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
                 
 
 
@@ -583,11 +701,11 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="berrx" height="28">
+                    <img src="/images/logo.svg" alt="使用 Laravel 从零做一个社交网站 (一)" height="28">
                 
                 </a>
                 <p class="is-size-7">
-                &copy; 2020 berrx&nbsp;
+                &copy; 2020 使用 Laravel 从零做一个社交网站 (一)&nbsp;
                 Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> & <a
                         href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a>
                 
